@@ -5,21 +5,24 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { MaterialModule } from '../shared/material.module';
 import { RouterModule } from '@angular/router';
-
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [AuthComponent, HeaderComponent, FooterComponent, LoginComponent, SignUpComponent],
-  imports: [
-    CommonModule, 
-    MaterialModule,
-    RouterModule
+  declarations: [
+    AuthComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
+  imports: [CommonModule, SharedModule, RouterModule],
   exports: [
-    AuthComponent, HeaderComponent, FooterComponent, LoginComponent, SignUpComponent
-
-  ]
+    AuthComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    SignUpComponent,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}
