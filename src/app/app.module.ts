@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FlightsModule } from './flights/flights.module';
 import { PassengersModule } from './passengers/passengers.module';
+import { SeatsModule } from './seats/seats.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -20,7 +21,8 @@ import { PassengersModule } from './passengers/passengers.module';
     BrowserAnimationsModule,
     CoreModule,
     FlightsModule,
-    PassengersModule
+    PassengersModule,
+    SeatsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

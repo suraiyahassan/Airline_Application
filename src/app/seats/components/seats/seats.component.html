@@ -3,10 +3,10 @@
 
 
 
-<p-table [columns]="cols" [value]="cars" selectionMode="single" [(selection)]="selectedCar" 
+<p-table [columns]="cols" [value]="seats" selectionMode="single" [(selection)]="selectedSeat" 
 (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="5">
   <ng-template pTemplate="caption">
-      List of Cars
+      List of Seats
   </ng-template>
   <ng-template pTemplate="header" let-columns>
       <tr>
@@ -31,31 +31,62 @@
 </p-table>
 
 <p-dialog header="Car Details" [(visible)]="displayDialog" [focusOnShow]="false" showEffect="fade" [modal]="true" [style]="{width: '300px'}">
-  <div class="p-grid ui-fluid" *ngIf="car">
+  <div class="p-grid ui-fluid" *ngIf="seat">
+
+   
       <div class="p-col-4">
-          <label for="vin">Vin</label>
+          <label for="seatId">seatId</label>
       </div>
       <div class="p-col-8">
-          <input pInputText id="vin" [(ngModel)]="car.vin" autofocus />
+          <input pInputText id="seatId" [(ngModel)]="seat.seatId" autofocus />
       </div>
+
+
       <div class="p-col-4">
-          <label for="year">Year</label>
+          <label for="seatNo">seatNo</label>
       </div>
       <div class="p-col-8">
-          <input pInputText id="year" [(ngModel)]="car.year" />
+          <input pInputText id="seatNo" [(ngModel)]="seat.seatNo" />
       </div>
+
+
       <div class="p-col-4">
-          <label for="brand">Brand</label>
+          <label for="passengerId">passengerId</label>
       </div>
       <div class="p-col-8">
-          <input pInputText id="brand" [(ngModel)]="car.brand" />
+          <input pInputText id="passengerId" [(ngModel)]="seat.passengerId" />
       </div>
+
+
       <div class="p-col-4">
-          <label for="color">Color</label>
+          <label for="passengerName">passengerName</label>
       </div>
       <div class="p-col-8">
-          <input pInputText id="color" [(ngModel)]="car.color" />
+          <input pInputText id="passengerName" [(ngModel)]="seat.passengerName" />
       </div>
+
+      <div class="p-col-4">
+        <label for="chackedIn">chackedIn</label>
+    </div>
+    <div class="p-col-8">
+        <input pInputText id="chackedIn" [(ngModel)]="seat.chackedIn" />
+    </div>
+
+    <div class="p-col-4">
+        <label for="wheelChairRequired">wheelChairRequired</label>
+    </div>
+    <div class="p-col-8">
+        <input pInputText id="wheelChairRequired" [(ngModel)]="seat.wheelChairRequired" />
+    </div>
+
+    <div class="p-col-4">
+        <label for="withInfant">withInfant</label>
+    </div>
+    <div class="p-col-8">
+        <input pInputText id="withInfant" [(ngModel)]="seat.withInfant" />
+    </div>
+
+
   </div>
   <p-footer>
       <div class="ui-dialog-buttonpane ui-helper-clearfix">

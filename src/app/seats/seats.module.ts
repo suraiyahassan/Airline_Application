@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FlightsRoutingModule } from './flights-routing.module';
-import { FlightListComponent } from './components/flight-list/flight-list.component';
-import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
-
+import { SeatsRoutingModule } from './seats-routing.module';
+import { SeatsComponent } from './components/seats/seats.component';
 
 
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CarService } from './car.service';
 
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
@@ -25,15 +21,13 @@ import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
-
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'primeng/api';
 
 @NgModule({
-
-
-
-
-  declarations: [FlightListComponent],
+  declarations: [SeatsComponent],
   imports: [
+
     BrowserModule,
     BrowserAnimationsModule,
     TableModule,
@@ -49,19 +43,15 @@ import {InputTextModule} from 'primeng/inputtext';
     ProgressBarModule,
     HttpClientModule,
     FormsModule,
-    
 
 
 
     CommonModule,
-    FlightsRoutingModule,
     SharedModule,
-    FormsModule
+    SeatsRoutingModule
   ],
-  exports:
-  [
-    FlightListComponent
-  ],
-  providers: [CarService]
+  exports:[
+    SeatsComponent
+  ]
 })
-export class FlightsModule { }
+export class SeatsModule { }
