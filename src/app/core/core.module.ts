@@ -7,6 +7,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { FlightsModule } from '../flights/flights.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,13 @@ import { SharedModule } from '../shared/shared.module';
     LoginComponent,
     SignUpComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule],
+  imports: [CommonModule, SharedModule, RouterModule, FlightsModule],
   exports: [
     AuthComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    SignUpComponent,
+    SignUpComponent
   ],
 })
 export class CoreModule {}

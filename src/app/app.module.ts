@@ -9,7 +9,8 @@ import { CoreModule } from './core/core.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CheckInModule } from './check-in/check-in.module';
+import { FlightsModule } from './flights/flights.module';
+import { PassengersModule } from './passengers/passengers.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,8 +19,8 @@ import { CheckInModule } from './check-in/check-in.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    NgbModule,
-    CheckInModule
+    FlightsModule,
+    PassengersModule
   ],
   providers: [],
   bootstrap: [AppComponent],

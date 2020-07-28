@@ -1,0 +1,40 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- no Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let flight">{{ flight.no }}</td>
+    </ng-container>
+  
+    <!-- flightName Column -->
+    <ng-container matColumnDef="flightName">
+      <th mat-header-cell *matHeaderCellDef>Flight Name</th>
+      <td mat-cell *matCellDef="let flight">{{ flight.flightName }}</td>
+    </ng-container>
+  
+    <!-- departureTime Column -->
+    <ng-container matColumnDef="departureTime">
+      <th mat-header-cell *matHeaderCellDef>Departure Time</th>
+      <td mat-cell *matCellDef="let flight">{{ flight.departureTime }}</td>
+    </ng-container>
+  
+    <!-- arrivalTime Column -->
+    <ng-container matColumnDef="arrivalTime">
+      <th mat-header-cell *matHeaderCellDef>Arrival Time</th>
+      <td mat-cell *matCellDef="let flight">{{ flight.arrivalTime }}</td>
+    </ng-container>
+  
+    <!-- flightDetails Column -->
+    <ng-container matColumnDef="flightDetails">
+      <th mat-header-cell *matHeaderCellDef>Flight Details</th>
+      <td mat-cell *matCellDef="let flight">
+        <a [routerLink]="[flight.flightDetails]">Click here </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  

@@ -1,0 +1,88 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- no Column -->
+    <ng-container matColumnDef="passengerId">
+      <th mat-header-cell *matHeaderCellDef>Passenger Id.</th>
+      <td mat-cell *matCellDef="let passenger">{{ passenger.passengerId }}</td>
+    </ng-container>
+  
+    <!-- flightName Column -->
+    <ng-container matColumnDef="passengerName">
+      <th mat-header-cell *matHeaderCellDef>Passenger Name</th>
+      <td mat-cell *matCellDef="let passenger">{{ passenger.passengerName }}</td>
+    </ng-container>
+  
+    <!-- departureTime Column -->
+    <ng-container matColumnDef="seatNo">
+      <th mat-header-cell *matHeaderCellDef>Seat No</th>
+      <td mat-cell *matCellDef="let passenger">{{ passenger.seatNo }}</td>
+    </ng-container>
+  
+    <!-- arrivalTime Column -->
+    <ng-container matColumnDef="wheelChairRequired">
+      <th mat-header-cell *matHeaderCellDef>Wheel Chair Required/ Not</th>
+      <td mat-cell *matCellDef="let passenger">{{ passenger.wheelChairRequired }}</td>
+    </ng-container>
+
+    <!-- arrivalTime Column -->
+    <ng-container matColumnDef="havingInfant">
+        <th mat-header-cell *matHeaderCellDef>Passenger Having Infant/ Not</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.havingInfant }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="checkedIn">
+        <th mat-header-cell *matHeaderCellDef>Checked In/ Not</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.checkedIn }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="passportAvailable">
+        <th mat-header-cell *matHeaderCellDef>Passport </th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.passportAvailable }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="dobAvailable">
+        <th mat-header-cell *matHeaderCellDef>DOB </th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.dobAvailable }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="addressAvailable">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.addressAvailable }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="ancillaryService">
+        <th mat-header-cell *matHeaderCellDef>Ancillary Service</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.ancillaryService }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="meal">
+        <th mat-header-cell *matHeaderCellDef>Meal</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.meal }}</td>
+      </ng-container>
+
+      <!-- arrivalTime Column -->
+    <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef> Product</th>
+        <td mat-cell *matCellDef="let passenger">{{ passenger.product }}</td>
+      </ng-container>
+  
+    <!-- flightDetails Column -->
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef>Flight Details</th>
+      <td mat-cell *matCellDef="let passenger">
+        <a [routerLink]="[passenger.details]">Click here </a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  

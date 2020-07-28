@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlightSeatMapComponent } from './flight-seat-map.component';
+import { PassengerComponent } from './passenger.component';
 
-describe('FlightSeatMapComponent', () => {
-  let component: FlightSeatMapComponent;
-  let fixture: ComponentFixture<FlightSeatMapComponent>;
+describe('PassengerComponent', () => {
+  let component: PassengerComponent;
+  let fixture: ComponentFixture<PassengerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlightSeatMapComponent ]
+      declarations: [ PassengerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlightSeatMapComponent);
+    fixture = TestBed.createComponent(PassengerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
