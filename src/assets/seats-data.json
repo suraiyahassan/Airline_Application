@@ -1,8 +1,9 @@
 {
     "data": [
         {
-            "seatId": "VW",
-            "seatNo": 2012,
+
+            "seatNo": "VW",
+            "seatType": 2012,
             "passengerId": "Orange",
             "passengerName": "dsad231ff",
             "chackedIn": "VW",
@@ -10,8 +11,8 @@
             "withInfant": "Orange"
         },
         {
-            "seatId": "VW",
-            "seatNo": 2012,
+            "seatNo": "VW",
+            "seatType": 2012,
             "passengerId": "Orange",
             "passengerName": "dsad231ff",
             "chackedIn": "VW",
@@ -19,8 +20,8 @@
             "withInfant": "Orange"
         },
         {
-            "seatId": "VW",
-            "seatNo": 2012,
+            "seatNo": "VW",
+            "seatType": 2012,
             "passengerId": "Orange",
             "passengerName": "dsad231ff",
             "chackedIn": "VW",

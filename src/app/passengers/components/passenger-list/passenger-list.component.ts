@@ -1,58 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface FlightDetails {
-  passengerId: string;
-  passengerName: string;
-  seatNo: string;
-  wheelChairRequired: boolean;
-  havingInfant: boolean;
-  checkedIn: boolean;
-  passportAvailable: boolean;
-  dobAvailable: boolean;
-  addressAvailable: boolean;
-  ancillaryService: string;
-  meal: string;
-  product: string;
-  details: string;
-}
-
-
-const ELEMENT_DATA: FlightDetails[] = [
-  {
-    passengerId: 'P101',
-    passengerName: 'Suraiya',
-    seatNo: 'C1',
-    wheelChairRequired: false,
-    havingInfant: true,
-    checkedIn: false,
-    passportAvailable: true,
-    dobAvailable: true,
-    addressAvailable: true,
-    ancillaryService: 'WIfi',
-    meal: 'Veg',
-    product: 'Book',
-    details: 'https://www.google.com/'
-
-  },
-  {
-    passengerId: 'P102',
-    passengerName: 'Atul',
-    seatNo: 'C3',
-    wheelChairRequired: false,
-    havingInfant: true,
-    checkedIn: true,
-    passportAvailable: false,
-    dobAvailable: true,
-    addressAvailable: true,
-    ancillaryService: 'Neck Rest',
-    meal: 'Non veg',
-    product: 'Watch',
-    details: 'https://www.google.com/'
-
-  },
-];
-
-
+import { PassengersService } from '../../service/passengers.service';
+import { Passenger } from '../../models/passenger.model';
 
 @Component({
   selector: 'app-passenger-list',
@@ -60,26 +8,81 @@ const ELEMENT_DATA: FlightDetails[] = [
   styleUrls: ['./passenger-list.component.scss'],
 })
 export class PassengerListComponent implements OnInit {
+  displayDialog: boolean;
 
-  displayedColumns: string[] = [
-    'passengerId',
-    'passengerName',
-    'seatNo',
-    'wheelChairRequired',
-    'havingInfant',
-    'checkedIn',
-    'passportAvailable',
-    'dobAvailable',
-    'addressAvailable',
-    'ancillaryService',
-    'meal',
-    'product',
-    'details'
-  ];
-  dataSource = ELEMENT_DATA;
+  passenger: Passenger = {};
+
+  selectedPassenger: Passenger;
+
+  newPassenger: boolean;
+
+  passengers: Passenger[];
+
+  cols: any[];
+
+  constructor(private passengerService: PassengersService) {}
 
 
-  constructor() {}
+  ngOnInit(): void {
+    this.passengerService
+      .getPassengerData()
+      .then(passengers => this.passengers = passengers);
 
-  ngOnInit(): void {}
+
+    this.cols = [
+      { field: 'passengerId', header: 'Passenger ID' },
+      { field: 'passengerName', header: 'Passenger Name' },
+      { field: 'address', header: 'Address' },
+      { field: 'dob', header: 'DOB' },
+      { field: 'passport', header: 'Passport' },
+      { field: 'seatNo', header: 'Seat No' },
+      { field: 'checkedIn', header: 'Chacked-In' },
+      { field: 'wheelChairRequired', header: 'Wheel Chair' },
+      { field: 'withInfant', header: 'With Infant' },
+      { field: 'ancillaryService', header: 'Ancillary Service' },
+      { field: 'meal', header: 'Meal' },
+      { field: 'product', header: 'Product' },
+    ];
+  }
+
+  showDialogToAdd() {
+    this.newPassenger = true;
+    this.passenger = {};
+    this.displayDialog = true;
+  }
+
+  save() {
+    const passengers = [...this.passengers];
+    if (this.newPassenger) {
+      passengers.push(this.passenger);
+    } else {
+      passengers[this.passengers.indexOf(this.selectedPassenger)] = this.passenger;
+    }
+
+    this.passengers = passengers;
+    this.passenger = null;
+    this.displayDialog = false;
+  }
+
+  delete() {
+    const index = this.passengers.indexOf(this.selectedPassenger);
+    this.passengers = this.passengers.filter((val, i) => i != index);
+    this.passenger = null;
+    this.displayDialog = false;
+  }
+
+  onRowSelect(event) {
+    this.newPassenger = false;
+    this.passenger = this.cloneSeat(event.data);
+    this.displayDialog = true;
+  }
+
+  cloneSeat(p: Passenger): Passenger {
+    const passenger = {};
+    // tslint:disable-next-line: forin
+    for (const prop in p) {
+      passenger[prop] = p[prop];
+    }
+    return passenger;
+  }
 }

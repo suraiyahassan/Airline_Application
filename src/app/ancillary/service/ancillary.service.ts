@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Seat } from './../models/seat.model';
+import { Ancillary } from '../models/ancillary.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class SeatsService {
+export class AncillaryService {
   constructor(private http: HttpClient) {}
 
-  getSeatData() {
+  getAncillaryData() {
     return (
       this.http
-        .get<any>('assets/seats-data.json')
+        .get<any>('assets/ancillary-data.json')
         .toPromise()
         // tslint:disable-next-line: no-angle-bracket-type-assertion
-        .then((res) => <Seat[]>res.data)
+        .then((res) => <Ancillary[]>res.data)
         .then((data) => {
           return data;
         })

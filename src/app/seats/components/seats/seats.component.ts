@@ -1,37 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeatsService } from '../../service/seats.service';
+import { Seat } from '../../models/seat.model';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export interface Seat {
-  seatId?;
-  seatNo?;
-  passengerId?;
-  passengerName?;
-  chackedIn?;
-  wheelChairRequired?;
-  withInfant?;
-}
 
 @Component({
   selector: 'app-seats',
@@ -59,16 +29,17 @@ export class SeatsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.seatService.getCarsSmall().then(seats => this.seats = seats);
+    this.seatService.getSeatData()
+    .then(seats => this.seats = seats);
 
     this.cols = [
-          { field: 'seatId', header: 'seatId' },
-          { field: 'seatNo', header: 'seatNo' },
-          { field: 'passengerId', header: 'passengerId' },
-          { field: 'passengerName', header: 'passengerName' },
-          { field: 'chackedIn', header: 'chackedIn' },
-          { field: 'wheelChairRequired', header: 'wheelChairRequired' },
-          { field: 'withInfant', header: 'withInfant' }
+          { field: 'seatNo', header: 'Seat No' },
+          { field: 'seatType', header: 'Seat Type' },
+          { field: 'passengerId', header: 'Passenger ID' },
+          { field: 'passengerName', header: 'Passenger Name' },
+          { field: 'checkedIn', header: 'Checked-In' },
+          { field: 'wheelChairRequired', header: 'Wheel Chair' },
+          { field: 'withInfant', header: 'With Infant' }
       ];
   }
 

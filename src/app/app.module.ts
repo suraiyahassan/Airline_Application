@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlightsModule } from './flights/flights.module';
 import { PassengersModule } from './passengers/passengers.module';
 import { SeatsModule } from './seats/seats.module';
+import { AncillaryModule } from './ancillary/ancillary.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -22,7 +23,8 @@ import { SeatsModule } from './seats/seats.module';
     CoreModule,
     FlightsModule,
     PassengersModule,
-    SeatsModule
+    SeatsModule,
+    AncillaryModule
   ],
   providers: [],
   bootstrap: [AppComponent],
