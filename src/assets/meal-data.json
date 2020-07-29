@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "mealId": "M101",
+      "mealName": "Pizza",
+      "mealType": "Veg",
+      "price": "Rs. 529.50",
+      "pictureUrl": "pizza.jpg"
+    },
+    {
+      "mealId": "M102",
+      "mealName": "Biryani",
+      "mealType": "Non-veg",
+      "price": "Rs. 659.80",
+      "pictureUrl": "biryani.jpg"
+    },
+    {
+      "mealId": "M103",
+      "mealName": "Biryani with coke",
+      "mealType": "Special",
+      "price": "Rs. 829.80",
+      "pictureUrl": "biryaniWithCoke.jpg"
+    }
+  ]
+}

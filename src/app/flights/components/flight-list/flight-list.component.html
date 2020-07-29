@@ -22,20 +22,13 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr [pSelectableRow]="rowData">
       <td *ngFor="let col of columns">
-        
-        <span *ngIf="col.header==='Details'"><a style="color:blue;" [href]="rowData[col.field]">Click here</a></span>
-              <span *ngIf="col.header!=='Details'"> {{ rowData[col.field] }}</span>
-
-
-
-
+        <span *ngIf="col.header === 'Details'"
+          ><a style="color: blue;" [href]="rowData[col.field]"
+            >Click here</a
+          ></span
+        >
+        <span *ngIf="col.header !== 'Details'"> {{ rowData[col.field] }}</span>
       </td>
-
-
-
-
-
-
     </tr>
   </ng-template>
   <ng-template pTemplate="summary" let-rowData>
@@ -98,8 +91,6 @@
     <div class="p-col-8">
       <input pInputText id="arrivalTime" [(ngModel)]="flight.arrivalTime" />
     </div>
-
-    
   </div>
   <p-footer>
     <div class="ui-dialog-buttonpane ui-helper-clearfix">

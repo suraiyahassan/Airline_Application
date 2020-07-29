@@ -41,7 +41,7 @@ export class PassengerListComponent implements OnInit {
       { field: 'dob', header: 'DOB' },
       { field: 'passport', header: 'Passport' },
       { field: 'seatNo', header: 'Seat No' },
-      { field: 'checkedIn', header: 'Chacked-In' },
+      { field: 'checkedIn', header: 'Checked-In' },
       { field: 'wheelChairRequired', header: 'Wheel Chair' },
       { field: 'withInfant', header: 'With Infant' },
       { field: 'ancillaryService', header: 'Ancillary Service' },

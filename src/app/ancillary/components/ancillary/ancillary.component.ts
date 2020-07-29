@@ -74,6 +74,6 @@ export class AncillaryComponent implements OnInit {
     for (const prop in p) {
       ancillary[prop] = p[prop];
     }
-    return this.ancillary;
+    return ancillary;
   }
 }

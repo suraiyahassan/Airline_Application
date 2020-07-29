@@ -1,6 +1,7 @@
-export interface Passenger {
+export interface Meal {
   mealId?;
   mealName?;
   mealType?;
   price?;
+  pictureUrl?;
 }

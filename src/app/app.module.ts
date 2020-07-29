@@ -7,12 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FlightsModule } from './flights/flights.module';
 import { PassengersModule } from './passengers/passengers.module';
 import { SeatsModule } from './seats/seats.module';
 import { AncillaryModule } from './ancillary/ancillary.module';
+import { MealsModule } from './meals/meals.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -24,7 +24,8 @@ import { AncillaryModule } from './ancillary/ancillary.module';
     FlightsModule,
     PassengersModule,
     SeatsModule,
-    AncillaryModule
+    AncillaryModule,
+    MealsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

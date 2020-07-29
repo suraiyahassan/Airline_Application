@@ -1,19 +1,19 @@
 {
   "data": [
     {
-      "serviceId": "VW",
-      "serviceName": "2012",
-      "charge": "Orange"
+      "serviceId": "ANC1",
+      "serviceName": "WIFI",
+      "charge": "Rs. 129.80"
     },
     {
-      "serviceId": "VW",
-      "serviceName": "2012",
-      "charge": "Orange"
+      "serviceId": "ANC2",
+      "serviceName": "BLANKET",
+      "charge": "Rs. 399.00"
     },
     {
-      "serviceId": "VW",
-      "serviceName": "2012",
-      "charge": "Orange"
+      "serviceId": "ANC3",
+      "serviceName": "NECK REST",
+      "charge": "Rs. 290.40"
     }
   ]
 }

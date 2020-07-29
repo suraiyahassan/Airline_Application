@@ -1,1 +1,96 @@
-<p>meals works!</p>
+<p-table
+  [columns]="cols"
+  [value]="meals"
+  selectionMode="single"
+  [(selection)]="selectedMeal"
+  (onRowSelect)="onRowSelect($event)"
+  [paginator]="true"
+  [rows]="5"
+>
+  <ng-template pTemplate="caption">
+    List of Meal
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th style="background-color:#007ad9; color: white;" *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}
+        <p-sortIcon  [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary" let-rowData>
+    <div style="text-align: left;">
+      <button
+        type="button"
+        pButton
+        icon="pi pi-plus"
+        (click)="showDialogToAdd()"
+        label="Add"
+      ></button>
+    </div>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  header="Ancillary Service Details"
+  [(visible)]="displayDialog"
+  [focusOnShow]="false"
+  showEffect="fade"
+  [modal]="true"
+  [style]="{ width: '300px' }"
+>
+  <div class="p-grid ui-fluid" *ngIf="meal">
+    <div class="p-col-4">
+      <label for="mealId">Meal ID</label>
+    </div>
+    <div class="p-col-8">
+      <input pInputText id="mealId" [(ngModel)]="meal.mealId" autofocus />
+    </div>
+
+    <div class="p-col-4">
+      <label for="mealName">Meal Name </label>
+    </div>
+    <div class="p-col-8">
+      <input pInputText id="mealName" [(ngModel)]="meal.mealName" autofocus />
+    </div>
+
+    <div class="p-col-4">
+      <label for="mealType">Type</label>
+    </div>
+    <div class="p-col-8">
+      <input pInputText id="mealType" [(ngModel)]="meal.mealType" autofocus />
+    </div>
+
+    <div class="p-col-4">
+      <label for="price">Price</label>
+    </div>
+    <div class="p-col-8">
+      <input pInputText id="price" [(ngModel)]="meal.price" autofocus />
+    </div>
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button
+        type="button"
+        pButton
+        icon="pi pi-times"
+        (click)="delete()"
+        label="Delete"
+      ></button>
+      <button
+        type="button"
+        pButton
+        icon="pi pi-check"
+        (click)="save()"
+        label="Save"
+      ></button>
+    </div>
+  </p-footer>
+</p-dialog>

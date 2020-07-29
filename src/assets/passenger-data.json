@@ -1,46 +1,46 @@
 {
   "data": [
     {
-      "passengerId": "VW",
-      "passengerName": "2012",
-      "address": "Orange",
-      "dob": "dsad231ff",
-      "passport": "VW",
-      "seatNo": "2012",
+      "passengerId": "P101",
+      "passengerName": "Alok Kumar",
+      "address": "Kolkata",
+      "dob": "03.08.91",
+      "passport": "AXYW1254LK",
+      "seatNo": "A1",
       "checkedIn": "Yes",
       "wheelChairRequired": "Yes",
       "withInfant": "Yes",
-      "ancillaryService": "VW",
-      "meal": "2012",
-      "product": "Orange"
+      "ancillaryService": "Wifi",
+      "meal": "Veg",
+      "product": "Watch"
     },
     {
-      "passengerId": "VW",
-      "passengerName": "2012",
-      "address": "Orange",
-      "dob": "dsad231ff",
-      "passport": "VW",
-      "seatNo": "2012",
+      "passengerId": "P102",
+      "passengerName": "Riya Basu",
+      "address": "Mumbai",
+      "dob": "23.03.99",
+      "passport": "AXYW0954LK",
+      "seatNo": "C1",
       "checkedIn": "No",
       "wheelChairRequired": "Yes",
       "withInfant": "Yes",
-      "ancillaryService": "VW",
-      "meal": "2012",
-      "product": "Orange"
+      "ancillaryService": "None",
+      "meal": "Non-veg",
+      "product": "None"
     },
     {
-      "passengerId": "VW",
-      "passengerName": "2012",
-      "address": "Orange",
-      "dob": "dsad231ff",
-      "passport": "VW",
-      "seatNo": "2012",
+      "passengerId": "P103",
+      "passengerName": "Hitesh Chabra",
+      "address": "Delhi",
+      "dob": "06.11.96",
+      "passport": "AXYW6474LK",
+      "seatNo": "B1",
       "checkedIn": "Yes",
       "wheelChairRequired": "No",
       "withInfant": "Yes",
-      "ancillaryService": "VW",
-      "meal": "2012",
-      "product": "Orange"
+      "ancillaryService": "Neck rest",
+      "meal": "Special",
+      "product": "Book"
     }
   ]
 }

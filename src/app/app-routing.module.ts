@@ -7,6 +7,7 @@ import { FlightListComponent } from './flights/components/flight-list/flight-lis
 import { PassengerListComponent } from './passengers/components/passenger-list/passenger-list.component';
 import { SeatsComponent } from './seats/components/seats/seats.component';
 import { AncillaryComponent } from './ancillary/components/ancillary/ancillary.component';
+import { MealsComponent } from './meals/components/meals/meals.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'flights', component: FlightListComponent},
   { path: 'passengers', component: PassengerListComponent},
   { path: 'seats', component: SeatsComponent},
-  { path: 'ancillary', component: AncillaryComponent}
+  { path: 'ancillary', component: AncillaryComponent},
+  { path: 'meals', component: MealsComponent}
   
 ];
 
