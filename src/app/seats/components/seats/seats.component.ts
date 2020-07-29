@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeatsService } from '../../service/seats.service';
 import { Seat } from '../../models/seat.model';
+import { SelectItem } from 'primeng/api';
 
 
 @Component({
@@ -21,9 +22,16 @@ export class SeatsComponent implements OnInit {
   seats: Seat[];
 
   cols: any[];
-
+  yesOrNo : SelectItem[];
  
-  constructor(private seatService: SeatsService) {}
+  constructor(private seatService: SeatsService) {
+
+    this.yesOrNo = [
+      {label: 'Yes', value: 'Yes'},
+      {label: 'No', value: 'No'},
+     
+  ];
+  }
 
 
 

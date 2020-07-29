@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PassengersService } from '../../service/passengers.service';
 import { Passenger } from '../../models/passenger.model';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-passenger-list',
@@ -19,15 +20,19 @@ export class PassengerListComponent implements OnInit {
   passengers: Passenger[];
 
   cols: any[];
+  yesOrNo: SelectItem[];
 
-  constructor(private passengerService: PassengersService) {}
-
+  constructor(private passengerService: PassengersService) {
+    this.yesOrNo = [
+      { label: 'Yes', value: 'Yes' },
+      { label: 'No', value: 'No' },
+    ];
+  }
 
   ngOnInit(): void {
     this.passengerService
       .getPassengerData()
-      .then(passengers => this.passengers = passengers);
-
+      .then((passengers) => (this.passengers = passengers));
 
     this.cols = [
       { field: 'passengerId', header: 'Passenger ID' },
@@ -56,7 +61,9 @@ export class PassengerListComponent implements OnInit {
     if (this.newPassenger) {
       passengers.push(this.passenger);
     } else {
-      passengers[this.passengers.indexOf(this.selectedPassenger)] = this.passenger;
+      passengers[
+        this.passengers.indexOf(this.selectedPassenger)
+      ] = this.passenger;
     }
 
     this.passengers = passengers;

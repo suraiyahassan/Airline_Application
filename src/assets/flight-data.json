@@ -7,7 +7,7 @@
       "arrivalTime": "VW",
       "source": "2012",
       "destination": "Orange",
-      "details": "VW"
+      "details": "/seats"
     },
     {
       "flightNo": "VW",
@@ -16,7 +16,7 @@
       "arrivalTime": "VW",
       "source": "2012",
       "destination": "Orange",
-      "details": "VW"
+      "details": "/seats"
     },
     {
       "flightNo": "VW",
@@ -25,7 +25,7 @@
       "arrivalTime": "VW",
       "source": "2012",
       "destination": "Orange",
-      "details": "VW"
+      "details": "/seats"
     }
   ]
 }

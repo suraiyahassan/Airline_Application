@@ -113,36 +113,26 @@
       <label for="checkedIn">Checked-In</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="checkedIn"
-        [(ngModel)]="passenger.checkedIn"
-        autofocus
-      />
+      <p-dropdown id="checkedIn" [options]="yesOrNo"  [(ngModel)]="passenger.checkedIn"   [showClear]="true" ></p-dropdown>
+
     </div>
 
     <div class="p-col-4">
       <label for="wheelChairRequired">Wheel Chair</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="wheelChairRequired"
-        [(ngModel)]="passenger.wheelChairRequired"
-        autofocus
-      />
+     
+
+      <p-dropdown id="wheelChairRequired" [options]="yesOrNo"  [(ngModel)]="passenger.wheelChairRequired"   [showClear]="true" ></p-dropdown>
+
     </div>
 
     <div class="p-col-4">
       <label for="withInfant">With Infant</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="withInfant"
-        [(ngModel)]="passenger.withInfant"
-        autofocus
-      />
+      <p-dropdown id="withInfant" [options]="yesOrNo"  [(ngModel)]="passenger.withInfant"   [showClear]="true" ></p-dropdown>
+
     </div>
 
     <div class="p-col-4">
