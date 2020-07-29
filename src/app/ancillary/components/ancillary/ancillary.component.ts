@@ -25,7 +25,7 @@ export class AncillaryComponent implements OnInit {
   ngOnInit(): void {
     this.ancillaryService
       .getAncillaryData()
-      .then((ancillaries) => (this.ancillaries = this.ancillaries));
+      .then(ancillaries => this.ancillaries = ancillaries);
 
     this.cols = [
       { field: 'serviceId', header: 'Service ID' },
