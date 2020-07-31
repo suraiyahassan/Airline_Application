@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './components/products/products.component';
-import { PrimengModule } from '../shared/primeng.module';
+import { SharedModule } from './../shared/shared.module';
+
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PrimengModule } from '../shared/primeng.module';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    PrimengModule
-  ]
+    SharedModule
+  ],
+  
 })
 export class ProductsModule { }

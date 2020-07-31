@@ -6,7 +6,6 @@ import { Product } from '../model/product.model';
   providedIn: 'root'
 })
 export class ProductsService {
-
   constructor(private http: HttpClient) {}
 
   getProductData() {
