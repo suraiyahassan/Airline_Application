@@ -14,7 +14,7 @@ export class AncillaryService {
         .get<any>('assets/ancillary-data.json')
         .toPromise()
         // tslint:disable-next-line: no-angle-bracket-type-assertion
-        .then((res) => <Ancillary[]>res.data)
+        .then((res) => <Ancillary[]> res.data)
         .then((data) => {
           return data;
         })

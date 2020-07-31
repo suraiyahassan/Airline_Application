@@ -8,6 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [FlightListComponent],
   imports: [CommonModule, FlightsRoutingModule, SharedModule],
-  exports: [FlightListComponent]
+  exports: [FlightListComponent, FlightsRoutingModule]
 })
 export class FlightsModule {}

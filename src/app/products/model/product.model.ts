@@ -1,5 +1,5 @@
-export interface Passenger {
+export interface Product {
   productId?;
-  pproductName?;
+  productName?;
   price?;
 }

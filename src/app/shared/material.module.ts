@@ -48,7 +48,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [],
   imports: [
     FlexLayoutModule,
-    CommonModule,
+   
     A11yModule,
     ClipboardModule,
     CdkStepperModule,

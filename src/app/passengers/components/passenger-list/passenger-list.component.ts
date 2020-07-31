@@ -73,7 +73,7 @@ export class PassengerListComponent implements OnInit {
 
   delete() {
     const index = this.passengers.indexOf(this.selectedPassenger);
-    this.passengers = this.passengers.filter((val, i) => i != index);
+    this.passengers = this.passengers.filter((val, i) => i !== index);
     this.passenger = null;
     this.displayDialog = false;
   }

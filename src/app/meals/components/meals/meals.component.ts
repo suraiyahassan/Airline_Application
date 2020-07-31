@@ -39,15 +39,12 @@ export class MealsComponent implements OnInit {
     this.displayDialog = true;
   }
 
-
   save() {
     const meals = [...this.meals];
     if (this.newMeal) {
       meals.push(this.meal);
     } else {
-      meals[
-        this.meals.indexOf(this.selectedMeal)
-      ] = this.meal;
+      meals[this.meals.indexOf(this.selectedMeal)] = this.meal;
     }
 
     this.meals = meals;
@@ -57,7 +54,7 @@ export class MealsComponent implements OnInit {
 
   delete() {
     const index = this.meals.indexOf(this.selectedMeal);
-    this.meals = this.meals.filter((val, i) => i != index);
+    this.meals = this.meals.filter((val, i) => i !== index);
     this.meal = null;
     this.displayDialog = false;
   }

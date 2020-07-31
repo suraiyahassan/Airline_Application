@@ -13,7 +13,7 @@ export class FlightListComponent implements OnInit {
 
   flight: Flight = {};
 
-  selectedFlight: Flight; 
+  selectedFlight: Flight;
 
   newFlight: boolean;
 
@@ -60,7 +60,7 @@ export class FlightListComponent implements OnInit {
 
   delete() {
     const index = this.flights.indexOf(this.selectedFlight);
-    this.flights = this.flights.filter((val, i) => i != index);
+    this.flights = this.flights.filter((val, i) => i !== index);
     this.flight = null;
     this.displayDialog = false;
   }

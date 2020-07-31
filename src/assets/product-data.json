@@ -1,0 +1,20 @@
+{
+    "data": [
+      {
+        "productId": "PROD1",
+        "productName": "Watch",
+        "price": "Rs. 3529.50"
+      },
+      {
+        "productId": "PROD1",
+        "productName": "Book",
+        "price": "Rs. 459.00"
+      },
+      {
+        "productId": "PROD1",
+        "productName": "Earphone",
+        "price": "Rs. 897.50"
+      }
+    ]
+  }
+  

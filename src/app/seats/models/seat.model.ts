@@ -8,4 +8,3 @@ export interface Seat {
     wheelChairRequired?;
     withInfant?;
   }
-  

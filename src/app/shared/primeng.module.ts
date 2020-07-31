@@ -20,9 +20,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+    
+    
     TableModule,
     CalendarModule,
     SliderModule,
@@ -38,9 +37,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   exports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+
     TableModule,
     CalendarModule,
     SliderModule,

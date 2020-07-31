@@ -14,7 +14,7 @@ export class MealsService {
         .get<any>('assets/meal-data.json')
         .toPromise()
         // tslint:disable-next-line: no-angle-bracket-type-assertion
-        .then((res) => <Meal[]>res.data)
+        .then((res) => <Meal[]> res.data)
         .then((data) => {
           return data;
         })

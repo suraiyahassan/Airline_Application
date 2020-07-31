@@ -14,7 +14,7 @@ export class FlightService {
     return this.http
       .get<any>('assets/flight-data.json')
       .toPromise()
-      .then((res) => <Flight[]>res.data)
+      .then((res) => res.data as Flight[])
       .then((data) => {
         return data;
       });

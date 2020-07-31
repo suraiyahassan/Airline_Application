@@ -13,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
     MealsRoutingModule,
     SharedModule
   ],
-  exports:[
+  exports: [
     MealsComponent
   ]
 })

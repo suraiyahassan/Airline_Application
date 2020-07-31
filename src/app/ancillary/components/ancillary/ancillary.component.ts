@@ -57,7 +57,7 @@ export class AncillaryComponent implements OnInit {
 
   delete() {
     const index = this.ancillaries.indexOf(this.selectedAncillary);
-    this.ancillaries = this.ancillaries.filter((val, i) => i != index);
+    this.ancillaries = this.ancillaries.filter((val, i) => i !== index);
     this.ancillary = null;
     this.displayDialog = false;
   }

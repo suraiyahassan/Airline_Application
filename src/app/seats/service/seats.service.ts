@@ -14,7 +14,7 @@ export class SeatsService {
         .get<any>('assets/seats-data.json')
         .toPromise()
         // tslint:disable-next-line: no-angle-bracket-type-assertion
-        .then((res) => <Seat[]>res.data)
+        .then((res) => <Seat[]> res.data)
         .then((data) => {
           return data;
         })
