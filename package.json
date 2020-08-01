@@ -4,7 +4,6 @@
   "watch": {
     "lint:html": "src/**/*.html"
   },
-
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,8 +12,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lint:html": "htmlhint-ng2 src/**/*.html",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "startdb":"json-server --watch src/assets/db.json --port=8080"
   },
+  
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.0",
@@ -60,6 +61,4 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   }
- 
-
 }

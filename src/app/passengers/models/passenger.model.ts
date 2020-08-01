@@ -1,5 +1,5 @@
 export interface Passenger {
-  passengerId?;
+  id?;
   passengerName?;
   address?;
   dob?;

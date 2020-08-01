@@ -52,19 +52,14 @@
 >
   <div class="p-grid ui-fluid" *ngIf="product">
     <div class="p-col-4">
-      <label for="productId">Product ID</label>
+      <label for="id">Product ID</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="productId"
-        [(ngModel)]="product.productId"
-        autofocus
-      />
+      <input pInputText id="id" [(ngModel)]="product.id" autofocus />
     </div>
 
     <div class="p-col-4">
-      <label for="productName">Meal Name </label>
+      <label for="productName">Product Name </label>
     </div>
     <div class="p-col-8">
       <input

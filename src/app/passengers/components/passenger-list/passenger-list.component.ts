@@ -21,21 +21,47 @@ export class PassengerListComponent implements OnInit {
 
   cols: any[];
   yesOrNo: SelectItem[];
+  ancillaryServiceOption: SelectItem[];
+  mealServiceOption: SelectItem[];
+  productOption: SelectItem[];
 
   constructor(private passengerService: PassengersService) {
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
       { label: 'No', value: 'No' },
     ];
+
+    this.ancillaryServiceOption = [
+      { label: 'Wifi', value: 'Wifi' },
+      { label: 'Blanket', value: 'Blanket' },
+      { label: 'Neck rest', value: 'Neck rest' },
+    ];
+
+    this.mealServiceOption = [
+      { label: 'Veg', value: 'veg' },
+      { label: 'Non-veg', value: 'Non-veg' },
+      { label: 'Special', value: 'Special' },
+    ];
+    this.productOption = [
+      { label: 'Book', value: 'Book' },
+      { label: 'Earphone', value: 'Earphone' },
+      { label: 'Watch', value: 'watch' },
+    ];
   }
 
   ngOnInit(): void {
-    this.passengerService
-      .getPassengerData()
-      .then((passengers) => (this.passengers = passengers));
+    this.passengerService.
+    getAllPassengers().subscribe(
+      passengers => {
+      this.passengers = passengers;
+    });
+
+    // this.passengerService
+    //   .getPassengerData()
+    //   .then((passengers) => (this.passengers = passengers));
 
     this.cols = [
-      { field: 'passengerId', header: 'Passenger ID' },
+      { field: 'id', header: 'Passenger ID' },
       { field: 'passengerName', header: 'Passenger Name' },
       { field: 'address', header: 'Address' },
       { field: 'dob', header: 'DOB' },
@@ -58,12 +84,30 @@ export class PassengerListComponent implements OnInit {
 
   save() {
     const passengers = [...this.passengers];
+    // if (this.newPassenger) {
+    //   passengers.push(this.passenger);
+    // } else {
+    //   passengers[
+    //     this.passengers.indexOf(this.selectedPassenger)
+    //   ] = this.passenger;
+    // }
+
     if (this.newPassenger) {
-      passengers.push(this.passenger);
+      this.passengerService
+        .savePassenger(this.passenger)
+        .subscribe((passenger) => {
+          passengers.push(passenger);
+          console.log(passenger);
+        });
     } else {
-      passengers[
-        this.passengers.indexOf(this.selectedPassenger)
-      ] = this.passenger;
+      this.passengerService
+        .editPassenger(this.passenger)
+        .subscribe((passenger) => {
+          passengers[
+            this.passengers.indexOf(this.selectedPassenger)
+          ] = passenger;
+        });
+      // products[this.products.indexOf(this.selectedProduct)] = this.product;
     }
 
     this.passengers = passengers;
@@ -74,6 +118,7 @@ export class PassengerListComponent implements OnInit {
   delete() {
     const index = this.passengers.indexOf(this.selectedPassenger);
     this.passengers = this.passengers.filter((val, i) => i !== index);
+    this.passengerService.deletePassenger(this.passenger).subscribe();
     this.passenger = null;
     this.displayDialog = false;
   }

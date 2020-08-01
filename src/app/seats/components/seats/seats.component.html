@@ -51,17 +51,17 @@
 
     <div class="p-grid ui-fluid" *ngIf="seat">
       <div class="p-col-4">
-        <label for="seatNo">Seat No</label>
+        <label for="id">Seat No</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="seatNo"  [(ngModel)]="seat.seatNo" autofocus />
+        <input pInputText id="id"  [(ngModel)]="seat.id" autofocus />
       </div>
 
       <div class="p-col-4">
         <label for="seatType">Seat Type</label>
       </div>
       <div class="p-col-8">
-        <input pInputText id="seatType" [(ngModel)]="seat.seatType" />
+        <p-dropdown id="seatType" [options]="seatTypeOption"  [(ngModel)]="seat.seatType"   [showClear]="true"></p-dropdown>
       </div>
 
       <div class="p-col-4">

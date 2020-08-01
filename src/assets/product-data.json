@@ -1,20 +1,24 @@
 {
-    "data": [
-      {
-        "productId": "PROD1",
-        "productName": "Watch",
-        "price": "Rs. 3529.50"
-      },
-      {
-        "productId": "PROD1",
-        "productName": "Book",
-        "price": "Rs. 459.00"
-      },
-      {
-        "productId": "PROD1",
-        "productName": "Earphone",
-        "price": "Rs. 897.50"
-      }
-    ]
-  }
-  
+  "data": [
+    {
+      "id": 2,
+      "productName": "omlet",
+      "price": "Rs. 459.00"
+    },
+    {
+      "id": 3,
+      "productName": "pizza",
+      "price": "Rs. 897.50"
+    },
+    {
+      "id": "4",
+      "productName": "Fish fry",
+      "price": "Rs. 2.50"
+    },
+    {
+      "id": "6",
+      "productName": "biscuits",
+      "price": "1"
+    }
+  ]
+}

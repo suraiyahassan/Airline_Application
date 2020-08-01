@@ -23,7 +23,10 @@ export class MealsComponent implements OnInit {
   constructor(private mealService: MealsService) {}
 
   ngOnInit(): void {
-    this.mealService.getMealData().then((meals) => (this.meals = meals));
+    this.mealService.getAllMeals().subscribe((meals) => {
+      this.meals = meals;
+    });
+    // this.mealService.getMealData().then((meals) => (this.meals = meals));
 
     this.cols = [
       { field: 'mealId', header: 'Meal ID' },
@@ -41,11 +44,27 @@ export class MealsComponent implements OnInit {
 
   save() {
     const meals = [...this.meals];
+    // if (this.newMeal) {
+    //   meals.push(this.meal);
+    // } else {
+    //   meals[this.meals.indexOf(this.selectedMeal)] = this.meal;
+    // }
+
     if (this.newMeal) {
-      meals.push(this.meal);
-    } else {
-      meals[this.meals.indexOf(this.selectedMeal)] = this.meal;
-    }
+      this.mealService.saveMeal(this.meal).subscribe(
+        meal =>
+        {
+          meals.push(meal);
+        }); 
+      }
+      else {
+        this.mealService.editMeal(this.meal).subscribe(
+          meal => 
+          {
+          meals[this.meals.indexOf(this.selectedMeal)] = meal;
+          }
+          );
+      }
 
     this.meals = meals;
     this.meal = null;
@@ -55,6 +74,8 @@ export class MealsComponent implements OnInit {
   delete() {
     const index = this.meals.indexOf(this.selectedMeal);
     this.meals = this.meals.filter((val, i) => i !== index);
+    this.mealService.deleteMeal(this.meal).subscribe();
+
     this.meal = null;
     this.displayDialog = false;
   }

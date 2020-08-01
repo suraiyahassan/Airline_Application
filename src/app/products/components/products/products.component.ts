@@ -23,12 +23,16 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productService
-      .getProductData()
-      .then((products) => (this.products = products));
+   
+
+    this.productService.
+    getAllProducts().subscribe(
+      products => {
+      this.products = products;
+    });
 
     this.cols = [
-      { field: 'productId', header: 'Product ID' },
+      { field: 'id', header: 'Product ID' },
       { field: 'productName', header: 'product Name' },
       { field: 'price', header: 'Price' },
     ];
@@ -43,9 +47,29 @@ export class ProductsComponent implements OnInit {
   save() {
     const products = [...this.products];
     if (this.newProduct) {
-      products.push(this.product);
-    } else {
-      products[this.products.indexOf(this.selectedProduct)] = this.product;
+      this.productService.saveProduct(this.product).subscribe(
+        product =>
+        {
+          products.push(product);
+        }); 
+      }
+    //   this.productService.save().subscribe(
+    //     (products: any[]) =>
+    //     {
+    //       products.push(this.product);
+    //     }); 
+   
+      // products.push(this.product);
+    
+    
+    else {
+      this.productService.editProduct(this.product).subscribe(
+        product => 
+        {
+        products[this.products.indexOf(this.selectedProduct)] = product;
+        }
+        );
+      // products[this.products.indexOf(this.selectedProduct)] = this.product;
     }
 
     this.products = products;
@@ -56,6 +80,7 @@ export class ProductsComponent implements OnInit {
   delete() {
     const index = this.products.indexOf(this.selectedProduct);
     this.products = this.products.filter((val, i) => i !== index);
+    this.productService.deleteProduct(this.product).subscribe();
     this.product = null;
     this.displayDialog = false;
   }
@@ -68,7 +93,6 @@ export class ProductsComponent implements OnInit {
 
   cloneSeat(p: Product): Product {
     const product = {};
-    // tslint:disable-next-line: forin
     for (const prop in p) {
       product[prop] = p[prop];
     }

@@ -21,19 +21,27 @@ export class SeatsComponent implements OnInit {
 
   cols: any[];
   yesOrNo: SelectItem[];
+  seatTypeOption: SelectItem[];
 
   constructor(private seatService: SeatsService) {
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
       { label: 'No', value: 'No' },
     ];
+    this.seatTypeOption=[
+      { label: 'Window', value: 'Window' },
+      { label: 'Middle', value: 'Middle' },
+      { label: 'Aisle', value: 'Aisle' }
+    ];
   }
 
   ngOnInit(): void {
-    this.seatService.getSeatData().then((seats) => (this.seats = seats));
+    this.seatService.getAllSeats().subscribe((seats) => {
+      this.seats = seats;
+    });
 
     this.cols = [
-      { field: 'seatNo', header: 'Seat No' },
+      { field: 'id', header: 'Seat No' },
       { field: 'seatType', header: 'Seat Type' },
       { field: 'passengerId', header: 'Passenger ID' },
       { field: 'passengerName', header: 'Passenger Name' },
@@ -52,9 +60,15 @@ export class SeatsComponent implements OnInit {
   save() {
     const seats = [...this.seats];
     if (this.newSeat) {
-      seats.push(this.seat);
+      if (this.newSeat) {
+        this.seatService.saveSeat(this.seat).subscribe((seat) => {
+          seats.push(seat);
+        });
+      }
     } else {
-      seats[this.seats.indexOf(this.selectedSeat)] = this.seat;
+      this.seatService.editSeat(this.seat).subscribe((seat) => {
+        seats[this.seats.indexOf(this.selectedSeat)] = seat;
+      });
     }
 
     this.seats = seats;
@@ -65,6 +79,8 @@ export class SeatsComponent implements OnInit {
   delete() {
     const index = this.seats.indexOf(this.selectedSeat);
     this.seats = this.seats.filter((val, i) => i !== index);
+    this.seatService.deleteSeat(this.seat).subscribe();
+
     this.seat = null;
     this.displayDialog = false;
   }

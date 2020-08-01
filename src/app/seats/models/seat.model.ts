@@ -1,6 +1,6 @@
 
 export interface Seat {
-    seatNo?;
+    id?;
     seatType?;
     passengerId?;
     passengerName?;
@@ -8,3 +8,4 @@ export interface Seat {
     wheelChairRequired?;
     withInfant?;
   }
+ 

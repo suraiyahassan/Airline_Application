@@ -8,9 +8,8 @@ describe('AncillaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AncillaryComponent ]
-    })
-    .compileComponents();
+      declarations: [AncillaryComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

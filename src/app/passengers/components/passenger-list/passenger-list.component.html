@@ -48,13 +48,13 @@
 >
   <div class="p-grid ui-fluid" *ngIf="passenger">
     <div class="p-col-4">
-      <label for="passengerId">Passenger ID</label>
+      <label for="id">Passenger ID</label>
     </div>
     <div class="p-col-8">
       <input
         pInputText
-        id="passengerId"
-        [(ngModel)]="passenger.passengerId"
+        id="id"
+        [(ngModel)]="passenger.id"
         autofocus
       />
     </div>
@@ -139,31 +139,27 @@
       <label for="ancillaryService">Ancillary Service</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="ancillaryService"
-        [(ngModel)]="passenger.ancillaryService"
-        autofocus
-      />
+     
+
+      <p-dropdown id="ancillaryService" [options]="ancillaryServiceOption"  [(ngModel)]="passenger.ancillaryService"   [showClear]="true" ></p-dropdown>
+
+      
     </div>
 
     <div class="p-col-4">
       <label for="meal">Meal</label>
     </div>
     <div class="p-col-8">
-      <input pInputText id="meal" [(ngModel)]="passenger.meal" autofocus />
+
+      <p-dropdown id="meal" [options]="mealServiceOption"  [(ngModel)]="passenger.meal"   [showClear]="true" ></p-dropdown>
     </div>
 
     <div class="p-col-4">
       <label for="product">Product</label>
     </div>
     <div class="p-col-8">
-      <input
-        pInputText
-        id="product"
-        [(ngModel)]="passenger.product"
-        autofocus
-      />
+      <p-dropdown id="product" [options]="productOption"  [(ngModel)]="passenger.product"   [showClear]="true" ></p-dropdown>
+
     </div>
   </div>
   <p-footer>

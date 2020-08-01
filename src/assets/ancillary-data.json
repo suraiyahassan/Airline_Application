@@ -1,17 +1,17 @@
 {
   "data": [
     {
-      "serviceId": "ANC1",
+      "serviceId": 1,
       "serviceName": "WIFI",
       "charge": "Rs. 129.80"
     },
     {
-      "serviceId": "ANC2",
+      "serviceId": 2,
       "serviceName": "BLANKET",
       "charge": "Rs. 399.00"
     },
     {
-      "serviceId": "ANC3",
+      "serviceId": 3,
       "serviceName": "NECK REST",
       "charge": "Rs. 290.40"
     }

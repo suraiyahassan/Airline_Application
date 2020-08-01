@@ -1,21 +1,21 @@
 {
   "data": [
     {
-      "passengerId": "P101",
+      "id": "P101",
       "passengerName": "Alok Kumar",
       "address": "Kolkata",
       "dob": "03.08.91",
-      "passport": "AXYW1254LK",
+      "passport": "AXYW0954LK",
       "seatNo": "A1",
       "checkedIn": "Yes",
       "wheelChairRequired": "Yes",
-      "withInfant": "Yes",
+      "withInfant": "No",
       "ancillaryService": "Wifi",
-      "meal": "Veg",
-      "product": "Watch"
+      "meal": "Special",
+      "product": "Book"
     },
     {
-      "passengerId": "P102",
+      "id": "P102",
       "passengerName": "Riya Basu",
       "address": "Mumbai",
       "dob": "23.03.99",
@@ -26,10 +26,10 @@
       "withInfant": "Yes",
       "ancillaryService": "None",
       "meal": "Non-veg",
-      "product": "None"
+      "product": "Earphone"
     },
     {
-      "passengerId": "P103",
+      "id": "P103",
       "passengerName": "Hitesh Chabra",
       "address": "Delhi",
       "dob": "06.11.96",
@@ -44,4 +44,3 @@
     }
   ]
 }
-
