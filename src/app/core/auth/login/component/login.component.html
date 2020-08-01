@@ -10,6 +10,7 @@
           matInput
           placeholder="Email"
           formControlName="username"
+          [(ngModel)]="username"
           required
         />
         <mat-error>
@@ -22,13 +23,14 @@
           type="password"
           placeholder="Password"
           formControlName="password"
+          [(ngModel)]="password"
           required
         />
         <mat-error>
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button (click)=checkLogin() color="primary">Login</button>
     </form>
   </mat-card-content>
 </mat-card>
