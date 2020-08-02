@@ -12,6 +12,6 @@
     <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/products">Products</button>
     <button *ngIf="!loginService.isUserLoggedIn()" mat-button routerLink="/login">Login</button>
     <button *ngIf="!loginService.isUserLoggedIn()" mat-raised-button color="accent" routerLink="/signUp">Sign Up</button>
-    <button *ngIf="loginService.isUserLoggedIn()" mat-raised-button color="accent" routerLink="/signUp">Logout</button>
+    <button *ngIf="loginService.isUserLoggedIn()" (click)="logOut()" mat-raised-button color="accent" routerLink="/logout">Logout</button>
   </mat-toolbar>
 </header>

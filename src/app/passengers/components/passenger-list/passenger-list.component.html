@@ -1,3 +1,33 @@
+<!-- <div>
+  <h3>List 9</h3>
+<p>Selected Car: {{selectedCar||'none'}}</p>
+
+<p-dropdown #dd
+  [options]="cars"
+  [(ngModel)]="selectedCar"
+  [style]="{'width':'100%'}"
+  scrollHeight="400px"
+  filter="true"
+  filterBy="value,label"
+  resetFilterOnHide="true"
+  (onChange)="OnChange($event)"
+  (onFocus)="OnFocus()"
+  (onBlur)="OnBlur()">
+    <ng-template let-item pTemplate="selectedItem">
+        {{(item.title) ? 'TODO' : item.label}}
+    </ng-template>
+    <ng-template let-car pTemplate="item">
+      <div class="item-drop1">
+        <mat-list-item>
+            <span class="item-value1">{{car.value}}</span>
+            <span *ngIf="car.value != '(TODO)'">{{car.label}}</span>
+        </mat-list-item>
+      </div>
+    </ng-template>    
+</p-dropdown>
+</div> -->
+
+
 <p-table
   [columns]="cols"
   [value]="passengers"

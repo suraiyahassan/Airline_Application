@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PassengersService } from '../../service/passengers.service';
 import { Passenger } from '../../models/passenger.model';
 import { SelectItem } from 'primeng/api';
+import { Dropdown } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-passenger-list',
@@ -25,7 +26,20 @@ export class PassengerListComponent implements OnInit {
   mealServiceOption: SelectItem[];
   productOption: SelectItem[];
 
+  // cars: SelectItem[];
+  
+  // selectedCar: string = 'BMW';
+
+
+  
+  // @ViewChild('dd') dropdown: Dropdown;
   constructor(private passengerService: PassengersService) {
+
+    // this.cars = [
+    //   { label: 'Car1', value: 'Car1' },
+    //   { label: 'Car2', value: 'Car2' },
+    // ];
+
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
       { label: 'No', value: 'No' },

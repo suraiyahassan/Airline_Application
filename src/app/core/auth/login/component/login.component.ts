@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   private formSubmitAttempt: boolean;
   private returnUrl: string;
 
-  username = 'javainuse'
-  password = ''
+  username : string;
+  password: string;
   
 
   constructor(private router: Router,
@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
-    ) {
+    console.log(this.username+this.password)
+    if (this.loginservice.authenticate(this.username, this.password)) {
       this.router.navigate(['/home'])
       this.invalidLogin = false
     } else

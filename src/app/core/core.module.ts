@@ -8,6 +8,7 @@ import { SignUpComponent } from './auth/sign-up/component/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/material.module';
 import { CoreRoutingModule } from './core-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,8 @@ import { CoreRoutingModule } from './core-routing.module';
     LoginComponent,
     SignUpComponent
   ],
-  imports: [CommonModule, MaterialModule, RouterModule],
-  exports: [
+  imports: [CommonModule, MaterialModule, RouterModule, FormsModule, ReactiveFormsModule],
+    exports: [
     CoreRoutingModule,
     AuthComponent,
     HeaderComponent,

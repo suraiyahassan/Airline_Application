@@ -8,7 +8,9 @@ export class AuthenticationService {
   constructor() { }
 
   authenticate(username, password) {
-    if (username === "username" && password === "password") {
+    console.log(username+"hello"+password);
+    if (username === "admin" && password === "admin") {
+      
       sessionStorage.setItem('username', username)
       return true;
     } else {
@@ -18,7 +20,7 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
+    
     return !(user === null)
   }
 

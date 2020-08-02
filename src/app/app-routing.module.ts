@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { HomeComponent } from './home/components/home.component';
 
 import { AuthGuardService } from './core/service/auth-guard.service';
+import { LoginComponent } from './core/auth/login/component/login.component';
 
 
 const routes: Routes = [
@@ -22,12 +23,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/auth/sign-up/sign-up.module').then((m) => m.SignUpModule),
   },
-  {
-    path: 'login',
+  // {
+  //   path: 'login',
     
-    loadChildren: () =>
-      import('./core/auth/login/login.module').then((m) => m.LoginModule),
-  },
+  //   loadChildren: () =>
+  //     import('./core/auth/login/login.module').then((m) => m.LoginModule),
+  // },
+   { path: 'login', component: LoginComponent},
+
   {
     path: 'flights',
     canActivate:[AuthGuardService],
