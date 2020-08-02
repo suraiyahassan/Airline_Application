@@ -1,3 +1,13 @@
+<div class="flightDropdown" >
+  <p-dropdown [style]="{'width':'80%'}"
+  scrollHeight="400px" [options]="flightOptions" [(ngModel)]="selectFlightOption" placeholder="Select a Flight" optionLabel="name" [showClear]="true"></p-dropdown>
+  <p style="text-align: center;">Selected flight: {{selectFlightOption ? selectFlightOption.name : 'none'}}</p>
+  
+</div>
+
+
+
+
 
   <p-table
     [columns]="cols"

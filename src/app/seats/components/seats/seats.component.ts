@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SeatsService } from '../../service/seats.service';
 import { Seat } from '../../models/seat.model';
 import { SelectItem } from 'primeng/api';
+import { FlightOption } from 'src/app/shared/model/flightOption.model';
 
 @Component({
   selector: 'app-seats',
@@ -23,15 +24,27 @@ export class SeatsComponent implements OnInit {
   yesOrNo: SelectItem[];
   seatTypeOption: SelectItem[];
 
+  flightOptions: FlightOption[];
+
+  selectFlightOption: FlightOption;
+
   constructor(private seatService: SeatsService) {
+    this.flightOptions = [
+      { name: 'FLIGHT_1', code: 'F1' },
+      { name: 'FLIGHT_2', code: 'F2' },
+      { name: 'FLIGHT_3', code: 'F3' },
+      { name: 'FLIGHT_4', code: 'F4' },
+      { name: 'FLIGHT_5', code: 'F5' },
+    ];
+
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
       { label: 'No', value: 'No' },
     ];
-    this.seatTypeOption=[
+    this.seatTypeOption = [
       { label: 'Window', value: 'Window' },
       { label: 'Middle', value: 'Middle' },
-      { label: 'Aisle', value: 'Aisle' }
+      { label: 'Aisle', value: 'Aisle' },
     ];
   }
 

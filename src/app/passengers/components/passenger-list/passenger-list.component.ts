@@ -3,6 +3,7 @@ import { PassengersService } from '../../service/passengers.service';
 import { Passenger } from '../../models/passenger.model';
 import { SelectItem } from 'primeng/api';
 import { Dropdown } from 'primeng/dropdown';
+import { FlightOption } from 'src/app/shared/model/flightOption.model';
 
 @Component({
   selector: 'app-passenger-list',
@@ -26,19 +27,18 @@ export class PassengerListComponent implements OnInit {
   mealServiceOption: SelectItem[];
   productOption: SelectItem[];
 
-  // cars: SelectItem[];
-  
-  // selectedCar: string = 'BMW';
+  flightOptions: FlightOption[];
 
+  selectFlightOption: FlightOption;
 
-  
-  // @ViewChild('dd') dropdown: Dropdown;
   constructor(private passengerService: PassengersService) {
-
-    // this.cars = [
-    //   { label: 'Car1', value: 'Car1' },
-    //   { label: 'Car2', value: 'Car2' },
-    // ];
+    this.flightOptions = [
+      { name: 'FLIGHT_1', code: 'F1' },
+      { name: 'FLIGHT_2', code: 'F2' },
+      { name: 'FLIGHT_3', code: 'F3' },
+      { name: 'FLIGHT_4', code: 'F4' },
+      { name: 'FLIGHT_5', code: 'F5' },
+    ];
 
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
@@ -64,9 +64,7 @@ export class PassengerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.passengerService.
-    getAllPassengers().subscribe(
-      passengers => {
+    this.passengerService.getAllPassengers().subscribe((passengers) => {
       this.passengers = passengers;
     });
 
