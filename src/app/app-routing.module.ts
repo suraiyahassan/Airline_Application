@@ -8,8 +8,15 @@ import { MealsComponent } from './meals/components/meals/meals.component';
 import { HomeModule } from './home/home.module';
 import { HomeComponent } from './home/components/home.component';
 
+import { AuthGuardService } from './core/service/auth-guard.service';
+
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
   {
     path: 'signUp',
     loadChildren: () =>
@@ -17,46 +24,49 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    
     loadChildren: () =>
       import('./core/auth/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'flights',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./flights/flights.module').then((m) => m.FlightsModule),
   },
   {
     path: 'passengers',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./passengers/passengers.module').then((m) => m.PassengersModule),
   },
   {
     path: 'seats',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./seats/seats.module').then((m) => m.SeatsModule),
   },
   {
     path: 'ancillary',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./ancillary/ancillary.module').then((m) => m.AncillaryModule),
   },
   {
     path: 'meals',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./meals/meals.module').then((m) => m.MealsModule),
   },
   {
     path: 'products',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomeModule),
-  },
-  {
-    path: '',
+    canActivate:[AuthGuardService],
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomeModule),
   }

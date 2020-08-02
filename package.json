@@ -13,9 +13,8 @@
     "e2e": "ng e2e",
     "lint:html": "htmlhint-ng2 src/**/*.html",
     "watch": "npm-watch",
-    "startdb":"json-server --watch src/assets/db.json --port=8080"
+    "startdb": "json-server --watch src/assets/db.json --port=8080"
   },
-  
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.0",
