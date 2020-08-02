@@ -7,9 +7,9 @@
     <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/flights">Flights</button>
     <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/passengers">Passengers</button>
     <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/seats">Seats</button>
-    <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/ancillary">Ancillary Services</button>
-    <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/meals">Meals</button>
-    <button *ngIf="loginService.isUserLoggedIn()" mat-button routerLink="/products">Products</button>
+    <button *ngIf="isAdmin" mat-button routerLink="/ancillary">Ancillary Services</button>
+    <button *ngIf="isAdmin" mat-button routerLink="/meals">Meals</button>
+    <button *ngIf="isAdmin" mat-button routerLink="/products">Products</button>
     <button *ngIf="!loginService.isUserLoggedIn()" mat-button routerLink="/login">Login</button>
     <button *ngIf="!loginService.isUserLoggedIn()" mat-raised-button color="accent" routerLink="/signUp">Sign Up</button>
     <button *ngIf="loginService.isUserLoggedIn()" (click)="logOut()" mat-raised-button color="accent" routerLink="/logout">Logout</button>
