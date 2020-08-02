@@ -29,7 +29,7 @@ export class MealsComponent implements OnInit {
     // this.mealService.getMealData().then((meals) => (this.meals = meals));
 
     this.cols = [
-      { field: 'mealId', header: 'Meal ID' },
+      { field: 'id', header: 'Meal ID' },
       { field: 'mealName', header: 'Meal Name' },
       { field: 'mealType', header: 'Type' },
       { field: 'price', header: 'Price' },

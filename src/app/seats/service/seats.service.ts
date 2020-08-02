@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class SeatsService {
   
-  url:string = 'http://localhost:8080/seats'
+  url:string = 'http://localhost:8080/seat1'
   constructor(private http: HttpClient) {}
 
   

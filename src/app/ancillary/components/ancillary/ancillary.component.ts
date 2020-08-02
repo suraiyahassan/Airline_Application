@@ -23,12 +23,11 @@ export class AncillaryComponent implements OnInit {
   constructor(private ancillaryService: AncillaryService) {}
 
   ngOnInit(): void {
-    this.ancillaryService
-      .getAncillaryData()
-      .then((ancillaries) => (this.ancillaries = ancillaries));
-
+    this.ancillaryService.getAllAncillaries().subscribe((ancillaries) => {
+      this.ancillaries = ancillaries;
+    });
     this.cols = [
-      { field: 'serviceId', header: 'Service ID' },
+      { field: 'id', header: 'Service ID' },
       { field: 'serviceName', header: 'Service Name' },
       { field: 'charge', header: 'Charge' },
     ];
@@ -43,11 +42,21 @@ export class AncillaryComponent implements OnInit {
   save() {
     const ancillaries = [...this.ancillaries];
     if (this.newAncillary) {
-      ancillaries.push(this.ancillary);
+      if (this.newAncillary) {
+        this.ancillaryService
+          .saveAncillary(this.ancillary)
+          .subscribe((ancillary) => {
+            ancillaries.push(ancillary);
+          });
+      }
     } else {
-      ancillaries[
-        this.ancillaries.indexOf(this.selectedAncillary)
-      ] = this.ancillary;
+      this.ancillaryService
+        .editAncillary(this.ancillary)
+        .subscribe((ancillary) => {
+          ancillaries[
+            this.ancillaries.indexOf(this.selectedAncillary)
+          ] = ancillary;
+        });
     }
 
     this.ancillaries = ancillaries;
@@ -58,6 +67,8 @@ export class AncillaryComponent implements OnInit {
   delete() {
     const index = this.ancillaries.indexOf(this.selectedAncillary);
     this.ancillaries = this.ancillaries.filter((val, i) => i !== index);
+    this.ancillaryService.deleteAncillary(this.ancillary).subscribe();
+
     this.ancillary = null;
     this.displayDialog = false;
   }

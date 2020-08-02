@@ -1,5 +1,5 @@
 export interface Meal {
-  mealId?;
+  id?;
   mealName?;
   mealType?;
   price?;

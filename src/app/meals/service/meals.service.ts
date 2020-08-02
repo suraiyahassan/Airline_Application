@@ -28,11 +28,11 @@ saveMeal(meal: Meal):Observable<Meal>{
 }
 
 editMeal(meal: Meal):Observable<any> {
-  const url = `${this.url}/${meal.mealId}`;
+  const url = `${this.url}/${meal.id}`;
   return this.http.put(url, meal, httpOptions);
 }
 deleteMeal(meal:Meal):Observable<Meal> {
-  const url = `${this.url}/${meal.mealId}`;
+  const url = `${this.url}/${meal.id}`;
   return this.http.delete<Meal>(url, httpOptions);
 }
 

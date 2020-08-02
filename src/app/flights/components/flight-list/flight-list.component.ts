@@ -24,12 +24,12 @@ export class FlightListComponent implements OnInit {
   constructor(private flightService: FlightService) {}
 
   ngOnInit() {
-    this.flightService
-      .getFlightData()
-      .then((flights) => (this.flights = flights));
+    this.flightService.getAllFlights().subscribe((flights) => {
+      this.flights = flights;
+    });
 
     this.cols = [
-      { field: 'flightNo', header: 'Flight No' },
+      { field: 'id', header: 'Flight No' },
       { field: 'flightName', header: 'Flight Name' },
       { field: 'departureTime', header: 'Departure Time' },
       { field: 'arrivalTime', header: 'Arrival Time' },
@@ -48,10 +48,17 @@ export class FlightListComponent implements OnInit {
   save() {
     const flights = [...this.flights];
     if (this.newFlight) {
-      flights.push(this.flight);
+      if (this.newFlight) {
+        this.flightService.saveFlight(this.flight).subscribe((flight) => {
+          flights.push(flight);
+        });
+      }
     } else {
-      flights[this.flights.indexOf(this.selectedFlight)] = this.flight;
+      this.flightService.editFlight(this.flight).subscribe((flight) => {
+        flights[this.flights.indexOf(this.selectedFlight)] = flight;
+      });
     }
+
 
     this.flights = flights;
     this.flight = null;
@@ -61,6 +68,8 @@ export class FlightListComponent implements OnInit {
   delete() {
     const index = this.flights.indexOf(this.selectedFlight);
     this.flights = this.flights.filter((val, i) => i !== index);
+    this.flightService.deleteFlight(this.flight).subscribe();
+
     this.flight = null;
     this.displayDialog = false;
   }
