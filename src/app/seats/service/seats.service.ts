@@ -14,24 +14,30 @@ const httpOptions = {
 })
 export class SeatsService {
   
-  url:string = 'http://localhost:8080/seat1'
+  url:string = 'http://localhost:8080'
   constructor(private http: HttpClient) {}
 
   
-getAllSeats():Observable<Seat[]> {
-  return this.http.get<Seat[]>(this.url);
+// getAllSeats():Observable<Seat[]> {
+//   return this.http.get<Seat[]>(this.url);
+// }
+
+getSeats(id):Observable<Seat[]>{
+  const url:string = `${this.url}/seats${id}`;
+  return this.http.get<Seat[]>(url);
 }
 
-saveSeat(seat: Seat):Observable<Seat>{
-  return this.http.post<Seat>(this.url, seat, httpOptions);
+saveSeat(seat: Seat,id){
+  const url:string = `${this.url}/seats${id}`;
+  return this.http.post(url, seat, httpOptions);
 }
 
-editSeat(seat: Seat):Observable<any> {
-  const url = `${this.url}/${seat.id}`;
-  return this.http.put(url, seat, httpOptions);
+editSeat(seat: Seat,id,seatId) {
+  const url:string = `${this.url}/seats${id}/${seatId}`;
+    return this.http.put(url, seat, httpOptions);
 }
-deleteSeat(seat:Seat):Observable<Seat> {
-  const url = `${this.url}/${seat.id}`;
+deleteSeat(seat:Seat,id,seatId):Observable<Seat> {
+  const url = `${this.url}/seats${id}/${seatId}`;
   return this.http.delete<Seat>(url, httpOptions);
 }
 

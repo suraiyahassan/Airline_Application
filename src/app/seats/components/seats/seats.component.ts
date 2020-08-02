@@ -3,6 +3,7 @@ import { SeatsService } from '../../service/seats.service';
 import { Seat } from '../../models/seat.model';
 import { SelectItem } from 'primeng/api';
 import { FlightOption } from 'src/app/shared/model/flightOption.model';
+import { FlightsService } from 'src/app/shared/services/flights.service';
 
 @Component({
   selector: 'app-seats',
@@ -28,14 +29,14 @@ export class SeatsComponent implements OnInit {
 
   selectFlightOption: FlightOption;
 
-  constructor(private seatService: SeatsService) {
-    this.flightOptions = [
-      { name: 'FLIGHT_1', code: 'F1' },
-      { name: 'FLIGHT_2', code: 'F2' },
-      { name: 'FLIGHT_3', code: 'F3' },
-      { name: 'FLIGHT_4', code: 'F4' },
-      { name: 'FLIGHT_5', code: 'F5' },
-    ];
+  constructor(private seatService: SeatsService, private flightsService: FlightsService) {
+    // this.flightOptions = [
+    //   { flightName: 'FLIGHT_1', id: 1 },
+    //   { name: 'FLIGHT_2', code: 2 },
+    //   { name: 'FLIGHT_3', code: 3 },
+    //   { name: 'FLIGHT_4', code: 4 },
+    //   { name: 'FLIGHT_5', code: 5 },
+    // ];
 
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
@@ -49,9 +50,13 @@ export class SeatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.seatService.getAllSeats().subscribe((seats) => {
-      this.seats = seats;
-    });
+    // this.seatService.getAllSeats().subscribe((seats) => {
+    //   this.seats = seats["seats"];
+    // });
+    this.flightsService.getFlights().subscribe((flights:any) =>{
+      this.flightOptions=flights
+    } )
+   
 
     this.cols = [
       { field: 'id', header: 'Seat No' },
@@ -64,24 +69,34 @@ export class SeatsComponent implements OnInit {
     ];
   }
 
+  showSeats(id){
+    console.log(id)
+    this.seatService.getSeats(id).subscribe((seats:Seat[]) => {
+      this.seats = seats;
+    });
+  }
+
   showDialogToAdd() {
     this.newSeat = true;
     this.seat = {};
     this.displayDialog = true;
   }
 
-  save() {
+  save(id, seatId) {
+    console.log(id);
     const seats = [...this.seats];
-    if (this.newSeat) {
+ 
       if (this.newSeat) {
-        this.seatService.saveSeat(this.seat).subscribe((seat) => {
-          seats.push(seat);
+        this.seatService.saveSeat(this.seat,id).subscribe(() => {
+          
         });
+        seats.push(this.seat);
       }
-    } else {
-      this.seatService.editSeat(this.seat).subscribe((seat) => {
-        seats[this.seats.indexOf(this.selectedSeat)] = seat;
+     else {
+      this.seatService.editSeat(this.seat,id, seatId).subscribe((seat) => {
+       
       });
+      seats[this.seats.indexOf(this.selectedSeat)] = this.seat;
     }
 
     this.seats = seats;
@@ -89,10 +104,10 @@ export class SeatsComponent implements OnInit {
     this.displayDialog = false;
   }
 
-  delete() {
+  delete(id,seatId) {
     const index = this.seats.indexOf(this.selectedSeat);
     this.seats = this.seats.filter((val, i) => i !== index);
-    this.seatService.deleteSeat(this.seat).subscribe();
+    this.seatService.deleteSeat(this.seat, id,seatId).subscribe();
 
     this.seat = null;
     this.displayDialog = false;

@@ -14,9 +14,60 @@ const httpOptions = {
 })
 export class PassengersService {
   
-  url:string = 'http://localhost:8080/passengers'
+  url:string = 'http://localhost:8080'
 
   constructor(private http: HttpClient) {}
+
+  
+getPassengers(id):Observable<Passenger[]>{
+  const url:string = `${this.url}/passengers${id}`;
+  return this.http.get<Passenger[]>(url);
+}
+
+savePassenger(passenger: Passenger,id){
+  const url:string = `${this.url}/passengers${id}`;
+  return this.http.post(url, passenger, httpOptions);
+}
+
+editPassenger(passenger: Passenger,id,passengerId) {
+  const url:string = `${this.url}/passengers${id}/${passengerId}`;
+    return this.http.put(url, passenger, httpOptions);
+}
+deletePassenger(passenger:Passenger,id,passengerId):Observable<Passenger> {
+  const url = `${this.url}/passengers${id}/${passengerId}`;
+  return this.http.delete<Passenger>(url, httpOptions);
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // getPassengerData() {
   //   return (
@@ -33,28 +84,24 @@ export class PassengersService {
 
 
   
-getAllPassengers():Observable<Passenger[]>{
-  return this.http.get<Passenger[]>(this.url);
-}
+// getAllPassengers():Observable<Passenger[]>{
+//   return this.http.get<Passenger[]>(this.url);
+// }
 
 
-savePassenger(passenger: Passenger):Observable<Passenger>{
-  return this.http.post<Passenger>(this.url, passenger, httpOptions);
-}
+// savePassenger(passenger: Passenger):Observable<Passenger>{
+//   return this.http.post<Passenger>(this.url, passenger, httpOptions);
+// }
 
 
-editPassenger(passenger: Passenger):Observable<any> {
-  const url = `${this.url}/${passenger.id}`;
-  return this.http.put(url, passenger, httpOptions);
-}
-deletePassenger(passenger:Passenger):Observable<Passenger> {
-  const url = `${this.url}/${passenger.id}`;
-  return this.http.delete<Passenger>(url, httpOptions);
-}
+// editPassenger(passenger: Passenger):Observable<any> {
+//   const url = `${this.url}/${passenger.id}`;
+//   return this.http.put(url, passenger, httpOptions);
+// }
+// deletePassenger(passenger:Passenger):Observable<Passenger> {
+//   const url = `${this.url}/${passenger.id}`;
+//   return this.http.delete<Passenger>(url, httpOptions);
+// }
 
-
-
-
-}
 
 

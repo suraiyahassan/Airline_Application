@@ -4,6 +4,7 @@ import { Passenger } from '../../models/passenger.model';
 import { SelectItem } from 'primeng/api';
 import { Dropdown } from 'primeng/dropdown';
 import { FlightOption } from 'src/app/shared/model/flightOption.model';
+import { FlightsService } from 'src/app/shared/services/flights.service';
 
 @Component({
   selector: 'app-passenger-list',
@@ -31,14 +32,14 @@ export class PassengerListComponent implements OnInit {
 
   selectFlightOption: FlightOption;
 
-  constructor(private passengerService: PassengersService) {
-    this.flightOptions = [
-      { name: 'FLIGHT_1', code: 'F1' },
-      { name: 'FLIGHT_2', code: 'F2' },
-      { name: 'FLIGHT_3', code: 'F3' },
-      { name: 'FLIGHT_4', code: 'F4' },
-      { name: 'FLIGHT_5', code: 'F5' },
-    ];
+  constructor(private passengerService: PassengersService,private flightsService: FlightsService) {
+    // this.flightOptions = [
+    //   { name: 'FLIGHT_1', code: 'F1' },
+    //   { name: 'FLIGHT_2', code: 'F2' },
+    //   { name: 'FLIGHT_3', code: 'F3' },
+    //   { name: 'FLIGHT_4', code: 'F4' },
+    //   { name: 'FLIGHT_5', code: 'F5' },
+    // ];
 
     this.yesOrNo = [
       { label: 'Yes', value: 'Yes' },
@@ -64,10 +65,9 @@ export class PassengerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.passengerService.getAllPassengers().subscribe((passengers) => {
-      this.passengers = passengers;
-    });
-
+    this.flightsService.getFlights().subscribe((flights:any) =>{
+      this.flightOptions=flights
+    } )
     // this.passengerService
     //   .getPassengerData()
     //   .then((passengers) => (this.passengers = passengers));
@@ -88,13 +88,22 @@ export class PassengerListComponent implements OnInit {
     ];
   }
 
+  showPassengers(id){
+    console.log(id)
+    this.passengerService.getPassengers(id).subscribe((passengers:Passenger[]) => {
+      this.passengers = passengers;
+    });
+  }
+
+
+
   showDialogToAdd() {
     this.newPassenger = true;
     this.passenger = {};
     this.displayDialog = true;
   }
 
-  save() {
+  save(id,passengerId) {
     const passengers = [...this.passengers];
     // if (this.newPassenger) {
     //   passengers.push(this.passenger);
@@ -106,18 +115,18 @@ export class PassengerListComponent implements OnInit {
 
     if (this.newPassenger) {
       this.passengerService
-        .savePassenger(this.passenger)
+        .savePassenger(this.passenger,id)
         .subscribe((passenger) => {
           passengers.push(passenger);
           console.log(passenger);
         });
     } else {
       this.passengerService
-        .editPassenger(this.passenger)
+        .editPassenger(this.passenger, id, passengerId)
         .subscribe((passenger) => {
           passengers[
             this.passengers.indexOf(this.selectedPassenger)
-          ] = passenger;
+          ] = this.passenger;
         });
       // products[this.products.indexOf(this.selectedProduct)] = this.product;
     }
@@ -127,10 +136,10 @@ export class PassengerListComponent implements OnInit {
     this.displayDialog = false;
   }
 
-  delete() {
+  delete(id,passengerId) {
     const index = this.passengers.indexOf(this.selectedPassenger);
     this.passengers = this.passengers.filter((val, i) => i !== index);
-    this.passengerService.deletePassenger(this.passenger).subscribe();
+    this.passengerService.deletePassenger(this.passenger, id,passengerId).subscribe();
     this.passenger = null;
     this.displayDialog = false;
   }

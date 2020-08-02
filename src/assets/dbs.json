@@ -1,0 +1,175 @@
+{   
+  "flight1":{
+    "id": 1,
+    "flightName": "KOL - BLR",
+    "departureTime": "01:30",
+    "arrivalTime": "02:45",
+    "source": "KOLKATA",
+    "destination": "BANGALORE",
+    "details": "/seats"
+
+  },
+  "seats1":[
+    {
+      "id": "D1",
+      "seatType": "Window",
+      "passengerId": "P101",
+      "passengerName": "Alok Kumar",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "No",
+      "withInfant": "No"
+    },
+    {
+      "id": "E1",
+      "seatType": "Middle",
+      "passengerId": "P102",
+      "passengerName": "Riya Basu",
+      "checkedIn": "No",
+      "wheelChairRequired": "Yes",
+      "withInfant": "No"
+    },
+    {
+      "id": "F1",
+      "seatType": "Aisle",
+      "passengerId": "P103",
+      "passengerName": "Hitesh Chabra",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "Yes",
+      "withInfant": "Yes"
+    }
+
+    
+  ],
+  "passengers1": [
+    {
+      "id": "P101",
+      "passengerName": "Alok Kumar",
+      "address": "Kolkata",
+      "dob": "03.08.91",
+      "passport": "AXYW0954LK",
+      "seatNo": "A1",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "Yes",
+      "withInfant": "No",
+      "ancillaryService": "Wifi",
+      "meal": "veg",
+      "product": "Book"
+    },
+    {
+      "id": "P102",
+      "passengerName": "Riya Basu",
+      "address": "Mumbai",
+      "dob": "23.03.99",
+      "passport": "AXYW0954LK",
+      "seatNo": "C1",
+      "checkedIn": "No",
+      "wheelChairRequired": "Yes",
+      "withInfant": "Yes",
+      "ancillaryService": "None",
+      "meal": "Non-veg",
+      "product": "Earphone"
+    },
+    {
+      "id": "P103",
+      "passengerName": "Hitesh Chabra",
+      "address": "Delhi",
+      "dob": "06.11.96",
+      "passport": "AXYW6474LK",
+      "seatNo": "B1",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "No",
+      "withInfant": "Yes",
+      "ancillaryService": "Neck rest",
+      "meal": "Special",
+      "product": "Book"
+    }
+  ],
+
+
+  "flight2":{
+    "id": 2,
+    "flightName": "BLR - HYD",
+    "departureTime": "03:45",
+    "arrivalTime": "04:20",
+    "source": "BANGALORE",
+    "destination": "HYDRABAD",
+    "details": "/seats"
+  },
+  "seats2":[
+    {
+      "id": "G1",
+      "seatType": "Window",
+      "passengerId": "P101",
+      "passengerName": "Alok Kumar",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "No",
+      "withInfant": "No"
+    },
+    {
+      "id": "H1",
+      "seatType": "Middle",
+      "passengerId": "P102",
+      "passengerName": "Riya Basu",
+      "checkedIn": "No",
+      "wheelChairRequired": "Yes",
+      "withInfant": "No"
+    },
+    {
+      "id": "I1",
+      "seatType": "Aisle",
+      "passengerId": "P103",
+      "passengerName": "Hitesh Chabra",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "Yes",
+      "withInfant": "Yes"
+    }
+
+    
+  ],
+
+  "passengers2": [
+    {
+      "id": "P201",
+      "passengerName": "Alok Kumar",
+      "address": "Kolkata",
+      "dob": "03.08.91",
+      "passport": "AXYW0954LK",
+      "seatNo": "A1",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "Yes",
+      "withInfant": "No",
+      "ancillaryService": "Wifi",
+      "meal": "veg",
+      "product": "Book"
+    },
+    {
+      "id": "P202",
+      "passengerName": "Riya Basu",
+      "address": "Mumbai",
+      "dob": "23.03.99",
+      "passport": "AXYW0954LK",
+      "seatNo": "C1",
+      "checkedIn": "No",
+      "wheelChairRequired": "Yes",
+      "withInfant": "Yes",
+      "ancillaryService": "None",
+      "meal": "Non-veg",
+      "product": "Earphone"
+    },
+    {
+      "id": "P203",
+      "passengerName": "Hitesh Chabra",
+      "address": "Delhi",
+      "dob": "06.11.96",
+      "passport": "AXYW6474LK",
+      "seatNo": "B1",
+      "checkedIn": "Yes",
+      "wheelChairRequired": "No",
+      "withInfant": "Yes",
+      "ancillaryService": "Neck rest",
+      "meal": "Special",
+      "product": "Book"
+    }
+  ]
+
+}

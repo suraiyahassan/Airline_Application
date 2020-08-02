@@ -1,4 +1,4 @@
 export interface FlightOption {
-    name: string,
-    code: string
+    id: number,
+    flightName: string
 }
